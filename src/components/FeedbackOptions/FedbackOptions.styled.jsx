@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 
 export const FeedbackContainer = styled.div`
   display: flex;
@@ -13,15 +13,16 @@ export const Button = styled.button`
 
   font-size: 14px;
   text-transform: uppercase;
-  color: #ffffff;
-  background-color: #2c24f3;
+  color: #1707f7;
+  background-color: #f7f705;
   cursor: pointer;
   border: none;
   border-radius: 5px;
   transition: background-color 250ms linear;
 
-  &:hover,
-  &:focus {
-    background-color: #4f49f6;
+  &:hover {
+    color: #f7f705;
+    background-color: #0635f4;
+    transform: scale(1.1);
   }
 `;

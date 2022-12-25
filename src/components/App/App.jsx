@@ -4,7 +4,6 @@ import Statictics from '../Statistics';
 import FeedbackOptions from '../FeedbackOptions';
 import Section from '../Section';
 import Notification from '../Notification';
-
 import { Container } from './App.styled';
 
 class App extends Component {
@@ -14,19 +13,19 @@ class App extends Component {
     bad: 0,
   };
 
-  onLeaveFeedback = option => {
-    this.setState(prevState => ({ [option]: prevState[option] + 1 }));
+  onLeaveFeedback = name => {
+    this.setState(prevState => ({ [name]: prevState[name] + 1 }));
   };
 
-  countTotalFeedback = () => {
+  countTotal = () => {
     return Object.values(this.state).reduce(
-      (prevValue, number) => prevValue + number,
+      (previousValue, number) => previousValue + number,
       0
     );
   };
 
-  countPositiveFeedbackPercentage = () => {
-    const total = this.countTotalFeedback();
+  countPositivePercentage = () => {
+    const total = this.countTotal();
     const { good } = this.state;
 
     return Math.round((good / total) * 100) || 0;
@@ -34,12 +33,12 @@ class App extends Component {
 
   render() {
     const { good, neutral, bad } = this.state;
-    const total = this.countTotalFeedback();
-    const positivePercentage = this.countPositiveFeedbackPercentage();
+    const total = this.countTotal();
+    const positivePercentage = this.countPositivePercentage();
 
     return (
       <Container>
-        <Section title="Please leave feedback">
+        <Section title="Fuck russia">
           <FeedbackOptions
             options={Object.keys(this.state)}
             onLeaveFeedback={this.onLeaveFeedback}
